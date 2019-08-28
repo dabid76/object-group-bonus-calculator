@@ -33,7 +33,25 @@ const employees = [
   }
 ];
 
-
+function employeeInfo( nameIn, employeeNumberIn, annualSalaryIn, reviewRatingIn){
+  let info = {
+    name: $( '#nameIn' ).val(),
+    employeeNumber: $( '#employeeNumber' ).val(),
+    annualSalary: $( '#annualSalaryIn' ).val(),
+    reviewRating: $( '#reviewRatingIn' ).val()
+  } // end info
+  // push the employeeInfo into the array
+  employees.push( employeeInfo );
+  // empty inputs
+  $( '#nameIn' ).val( '' );
+  $( '#employeeNumberIn' ).val( '' );
+  $( '#annualSalaryIn' ).val( '' );
+  $( '#reviewRatingIn' ).val( '' );
+  // calculate eveything
+  bonusCalculator();
+  // update DOM
+  displayInfo();
+} // end employeeInfo
 
 function bonusCalculator(employee) {
   let bonus = 0;
@@ -74,26 +92,6 @@ for ( let i = 0; i < employees.length; i++ ){
   console.log(bonusCalculator(employees[i]));
 }
 
-function employeeInfo( nameIn, employeeNumberIn, annualSalaryIn, reviewRatingIn){
-  let info = {
-    name: $( '#nameIn' ).val(),
-    employeeNumber: $( '#employeeNumber' ).val(),
-    annualSalary: $( '#annualSalaryIn' ).val(),
-    reviewRating: $( '#reviewRatingIn' ).val()
-  } // end info
-  // push the employeeInfo into the array
-  employees.push( employeeInfo );
-  // empty inputs
-  $( '#nameIn' ).val( '' );
-  $( '#employeeNumberIn' ).val( '' );
-  $( '#annualSalaryIn' ).val( '' );
-  $( '#reviewRatingIn' ).val( '' );
-  // calculate eveything
-  bonusCalculator();
-  // update DOM
-  displayInfo();
-} // end employeeInfo
-
 function displayInfo() {
   console.log( 'in displayInfo' );
   // target output by ID
@@ -111,7 +109,7 @@ function readyNow() {
   let el = $( '#emplyoeeOut' );
   el.empty();
   el.append( employees );
-  $( '#addButton' ).on( 'click' );
+  $( '#addButton' ).on( 'click', employeeInfo );
 } // end readyNow
 
 
