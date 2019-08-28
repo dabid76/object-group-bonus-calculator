@@ -1,3 +1,5 @@
+$( document ).ready( readyNow );
+
 const employees = [
   {
     name: 'Atticus',
@@ -72,6 +74,45 @@ for ( let i = 0; i < employees.length; i++ ){
   console.log(bonusCalculator(employees[i]));
 }
 
+function employeeInfo( nameIn, employeeNumberIn, annualSalaryIn, reviewRatingIn){
+  let info = {
+    name: $( '#nameIn' ).val(),
+    employeeNumber: $( '#employeeNumber' ).val(),
+    annualSalary: $( '#annualSalaryIn' ).val(),
+    reviewRating: $( '#reviewRatingIn' ).val()
+  } // end info
+  // push the employeeInfo into the array
+  employees.push( employeeInfo );
+  // empty inputs
+  $( '#nameIn' ).val( '' );
+  $( '#employeeNumberIn' ).val( '' );
+  $( '#annualSalaryIn' ).val( '' );
+  $( '#reviewRatingIn' ).val( '' );
+  // calculate eveything
+  bonusCalculator();
+  // update DOM
+  displayInfo();
+} // end employeeInfo
+
+function displayInfo() {
+  console.log( 'in displayInfo' );
+  // target output by ID
+  let el = $( '#NewInfo' );
+  // empty
+  el.empty();
+  // loop through employees
+  for ( info of employees ) {
+    // for each employee, creat a new list
+    el.append( '<li>' + info.name + ' ' + info.employeeNumber + ' ' + info.annualSalary + ' ' + info.reviewRating + '</li>' );
+  } // end for
+} // end displayInfo
+
+function readyNow() {
+  let el = $( '#emplyoeeOut' );
+  el.empty();
+  el.append( employees );
+  $( '#addButton' ).on( 'click' );
+} // end readyNow
 
 
 
