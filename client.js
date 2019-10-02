@@ -33,10 +33,12 @@ const employees = [
   }
 ];
 
-function employeeInfo( nameIn, employeeNumberIn, annualSalaryIn, reviewRatingIn){
-  let info = {
+// YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
+
+function employeeInfo( nameIn, employeeNumberIn, annualSalaryIn, reviewRatingIn ){
+  employees = {
     name: $( '#nameIn' ).val(),
-    employeeNumber: $( '#employeeNumber' ).val(),
+    employeeNumber: $( '#employeeNumberIn' ).val(),
     annualSalary: $( '#annualSalaryIn' ).val(),
     reviewRating: $( '#reviewRatingIn' ).val()
   } // end info
@@ -113,13 +115,6 @@ function readyNow() {
 } // end readyNow
 
 
-
-
-
-
-
-
-// YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
